@@ -1,0 +1,75 @@
+.recents {
+  margin-top: 40px;
+  .publicidade_mobile {
+    display: none;
+  }
+  .recents__title {
+    @include fontePrincipal($cor: $colorPrincipal, $tamanho: 24px, $peso: 500);
+  }
+
+  .recents__item {
+    padding: 3% 0;
+    p {
+      @include fontePrincipal($peso: 500);
+    }
+    &:after {
+      display: block;
+      content: "";
+      width: 100%;
+      margin-top: 20px;
+      height: 1px;
+      background: #ddd;
+    }
+  }
+
+  .recomendacoes {
+    .recents__title {
+      @include fontePrincipal($cor: rgb(255, 60, 0), $tamanho: 24px, $peso: 500);
+    }
+    .recomendacoe--1 {
+      display: flex;
+      margin-bottom: 15px;
+    }
+    .recomendacoe--1--desc {
+      margin-left: 15px;
+      margin-top: 15px;
+      & h3 {
+        @include fontePrincipal($cor: rgb(255, 60, 0), $tamanho: 16px, $peso: 500);
+        text-transform: uppercase;
+        margin-bottom: 8px;
+      }
+      & p {
+        max-width: 200px;
+        @include fontePrincipal($tamanho: 16px, $peso: 500);
+      }
+    }
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .list,
+    .recomendacoes {
+      flex: 1 1 50%;
+      max-width: 50%;
+    }
+    .publicidade_mobile {
+      display: flex;
+      justify-content: center;
+      margin: auto auto;
+    }
+  }
+  @media (max-width: 767px) {
+    .list,
+    .recomendacoes {
+      flex: 1 1 100%;
+      max-width: 100%;
+      margin: 20px 0;
+    }
+    .recomendacoe--1--desc {
+      margin: 0;
+    }
+    .publicidade_mobile {
+      display: flex;
+      justify-content: center;
+      margin: 50px auto;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+main.container {
+  margin-top: 140px;
+  .figure__capiton {
+    @include figcapition();
+    @include fontePrincipal($peso: 700, $cor: rgba(255, 255, 255, 0.747));
+    left: 20px;
+
+    @media (max-width: 767px) {
+      & {
+        width: 50%;
+        top: -40px;
+        left: 0;
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .controls ul {
+    & li a {
+      margin: 10px 4px 0 4px;
+      color: red;
+      display: block;
+      width: 10px;
+      height: 10px;
+      background: rgba(42, 42, 42, 0.507);
+      text-indent: -900px;
+      border-radius: 50%;
+      &.active {
+        background: rgb(0, 183, 255);
+      }
+    }
+  }
+  .carroussel__title {
+    @include fontePrincipal($peso: 700, $cor: $colorTexto, $tamanho: 1.8em);
+    position: relative;
+    left: 20px;
+    color: white;
+    margin-top: -90px;
+
+    @media (max-width: 767px) {
+      @include fontePrincipal($peso: 700, $cor: $colorTexto, $tamanho: 1.5em);
+      color: white;
+      & {
+        color: black;
+        left: 0;
+        margin: -20px 0 20px 0;
+      }
+    }
+    @media (max-width: 576px) {
+      @include fontePrincipal($peso: 700, $cor: $colorTexto, $tamanho: 1.2em);
+      color: white;
+      & {
+        color: black;
+        left: 0px;
+        margin: -20px 0 30px 0;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .controls {
+      margin: -20px 0 20px 0 !important;
+    }
+  }
+}

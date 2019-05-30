@@ -1,0 +1,28 @@
+.topnews {
+  .new__title {
+    @include fontePrincipal($tamanho: 24px, $peso: 500);
+  }
+}
+.topnews__1 {
+  @media (max-width: 576px) {
+    & {
+      max-width: 100%;
+      flex: 1 1 100%;
+    }
+  }
+
+  @include fontePrincipal($cor: white);
+  figure {
+    .figure__capiton {
+      &--1 {
+        @include figcapition($tamanho: 110px, $corFundo: #e14f3c, $top: -35px);
+      }
+      &--2 {
+        @include figcapition($tamanho: 110px, $right: 0, $corFundo: #e14f3c, $top: -35px);
+      }
+      &--3 {
+        @include figcapition($tamanho: 110px, $right: 0, $corFundo: #e14f3c, $top: -35px);
+      }
+    }
+  }
+}

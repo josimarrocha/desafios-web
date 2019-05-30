@@ -1,0 +1,50 @@
+.news {
+  margin-top: 20px;
+  .new__title {
+    @include fontePrincipal($tamanho: 24px, $peso: 500);
+  }
+  .news__div {
+    position: relative;
+    margin-bottom: 40px;
+    .news__categoria {
+      display: block;
+      @include fontePrincipal($cor: $colorSecundaria, $peso: 500, $tamanho: 12px);
+    }
+    .news__title__categoria {
+      @include fontePrincipal($peso: 600, $tamanho: 18px);
+    }
+    &:after {
+      display: block;
+      content: "";
+      width: 100%;
+      position: absolute;
+      bottom: -20px;
+      height: 1px;
+      background: #ddd;
+    }
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    .publicidad2e12 {
+      display: none;
+    }
+  }
+  @media (min-width: 576px) and (max-width: 767px) {
+    .publicidad2e12 {
+      display: none;
+    }
+  }
+  @media (max-width: 575px) {
+    .publicidad2e12 {
+      display: none;
+    }
+    .test {
+      align-self: center;
+    }
+    .news__div {
+      flex: 1 1 100%;
+      max-width: 100%;
+      margin: 20px auto;
+      padding: 0;
+    }
+  }
+}

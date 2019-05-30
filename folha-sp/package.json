@@ -1,0 +1,17 @@
+{
+  "name": "folha-de-sp",
+  "version": "1.0",
+  "description": "Site para folha de sp",
+  "main": "index.js",
+  "author": "Josimar",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.5",
+    "gulp": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.12.0"
+  }
+}
