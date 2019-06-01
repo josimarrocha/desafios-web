@@ -1,0 +1,111 @@
+$cols: 12;
+$gutter: 20px;
+
+$l-device: 1200;
+$m-device: 900;
+$sm-device: 740;
+$s-device: 560;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+// definindo grid para diferentes tamanhos de tela
+@mixin display($size) {
+  @if $size == l {
+    @media screen and (min-width: $l-device + px) {
+      @content;
+    }
+  } @else if $size == m {
+    @media screen and (min-width: $m-device + px) and (max-width: $l-device - 1 + px) {
+      @content;
+    }
+  } @else if $size == sm {
+    @media screen and (min-width: $sm-device + px) and (max-width: $m-device - 1 + px) {
+      @content;
+    }
+  } @else if $size == s {
+    @media screen and (max-width: $sm-device - 1 + px) {
+      @content;
+    }
+  }
+}
+
+// funcao para criar colunas
+@function grid($col) {
+  @return $col / $cols * 100%;
+}
+
+// criando o grid
+@for $i from 1 through $cols {
+  $width: grid($i);
+  .grid-#{$i} {
+    width: calc(#{$width} - #{$gutter});
+    // @extend %gridmobile;
+  }
+}
+
+@mixin grid-structure {
+  float: left;
+  margin-left: $gutter / 2;
+  margin-right: $gutter / 2;
+
+  @include display(s) {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+[class^="grid-"] {
+  @include grid-structure();
+}
+
+// clearboth
+@mixin clearboth {
+  &::before,
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin container {
+  min-width: 300px;
+  margin: 0 auto;
+  max-width: $l-device + px;
+  position: relative;
+  @include display(m) {
+    max-width: $m-device + px;
+  }
+  @include display(sm) {
+    max-width: $sm-device + px;
+  }
+  @include display(s) {
+    max-width: $s-device + px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  @include clearboth();
+}
+
+// linha
+@mixin row {
+  position: relative;
+  margin-left: -$gutter / 2;
+  margin-right: -$gutter / 2;
+  @include display(s) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.container {
+  @include container();
+}
+.row {
+  @include row();
+}

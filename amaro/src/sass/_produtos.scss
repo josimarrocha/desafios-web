@@ -1,0 +1,122 @@
+.produtos {
+  @include display(sm) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.produtos-item {
+  box-shadow: 0 0 5px 0 #999;
+  border-radius: 10px;
+  max-width: 300px;
+  min-width: 280px;
+  margin-bottom: 20px;
+
+  .produtos-img {
+    padding-top: 5px;
+    position: relative;
+    img {
+      margin: 0 auto;
+    }
+    p {
+      width: 100%;
+      position: absolute;
+      background: rgba(51, 51, 51, 0.632);
+      padding: 7px 0px 7px 10px;
+      bottom: 0px;
+      color: white;
+      font-weight: 600;
+    }
+  }
+  .produtos-dados {
+    padding: 3px 7px 5px 10px;
+    position: relative;
+
+    .valor-atual {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    .valor-anterior {
+      position: relative;
+      right: -20px;
+      top: -5px;
+    }
+
+    .desc {
+      color: green;
+      font-size: 0.9em;
+      font-weight: 500;
+      text-transform: uppercase;
+      position: relative;
+      top: -5px;
+    }
+
+    .parcelas {
+      margin-top: 8px;
+      color: rgba(255, 0, 0, 0.658);
+      font-weight: 500;
+    }
+
+    .tamanhos {
+      margin-top: 10px;
+      display: inline-flex;
+      h3 {
+        text-transform: uppercase;
+        font-size: 1em;
+        font-weight: 500;
+        margin-right: 8px;
+        padding-top: 4px;
+      }
+      li {
+        display: inline-block;
+        a {
+          color: black;
+          display: block;
+          border: 2px solid #333;
+          width: 28px;
+          height: 24px;
+          margin-right: 10px;
+          margin-bottom: 5px;
+          padding-top: 2px;
+          text-align: center;
+        }
+      }
+    }
+    .cor {
+      text-transform: uppercase;
+      font-size: 1em;
+      font-weight: 500;
+      margin-right: 8px;
+      margin-top: 5px;
+
+      span {
+        font-weight: normal;
+      }
+    }
+
+    .status {
+      text-transform: uppercase;
+      margin: 10px 0 15px 0px;
+      display: inline-flex;
+      text-align: center;
+      justify-content: center;
+      width: 100%;
+      h2 {
+        flex: 1;
+        color: rgba(255, 0, 0, 0.877);
+        align-self: center;
+      }
+      a {
+        flex: 1;
+        display: block;
+        background: #47ca83;
+        color: white;
+        max-width: 150px;
+        padding: 10px 0;
+        border-radius: 5px;
+      }
+    }
+  }
+}

@@ -1,5 +1,408 @@
-@charset 'utf-8';
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
 
 body {
-  font: 30px sans-serif;
+  line-height: 1;
 }
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  max-width: 100% !important;
+  display: block;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.grid-1 {
+  width: calc(8.3333333333% - 20px);
+}
+
+.grid-2 {
+  width: calc(16.6666666667% - 20px);
+}
+
+.grid-3 {
+  width: calc(25% - 20px);
+}
+
+.grid-4 {
+  width: calc(33.3333333333% - 20px);
+}
+
+.grid-5 {
+  width: calc(41.6666666667% - 20px);
+}
+
+.grid-6 {
+  width: calc(50% - 20px);
+}
+
+.grid-7 {
+  width: calc(58.3333333333% - 20px);
+}
+
+.grid-8 {
+  width: calc(66.6666666667% - 20px);
+}
+
+.grid-9 {
+  width: calc(75% - 20px);
+}
+
+.grid-10 {
+  width: calc(83.3333333333% - 20px);
+}
+
+.grid-11 {
+  width: calc(91.6666666667% - 20px);
+}
+
+.grid-12 {
+  width: calc(100% - 20px);
+}
+
+[class^=grid-] {
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+@media screen and (max-width: 739px) {
+  [class^=grid-] {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.container {
+  min-width: 300px;
+  margin: 0 auto;
+  max-width: 1200px;
+  position: relative;
+}
+@media screen and (min-width: 900px) and (max-width: 1199px) {
+  .container {
+    max-width: 900px;
+  }
+}
+@media screen and (min-width: 740px) and (max-width: 899px) {
+  .container {
+    max-width: 740px;
+  }
+}
+@media screen and (max-width: 739px) {
+  .container {
+    max-width: 560px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+.container::before, .container::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+  position: relative;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 739px) {
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+h2,
+h1 {
+  font-weight: bold;
+}
+
+.title-filter {
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 740px) and (max-width: 899px) {
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.produtos-item {
+  box-shadow: 0 0 5px 0 #999;
+  border-radius: 10px;
+  max-width: 300px;
+  min-width: 280px;
+  margin-bottom: 20px;
+}
+.produtos-item .produtos-img {
+  padding-top: 5px;
+  position: relative;
+}
+.produtos-item .produtos-img img {
+  margin: 0 auto;
+}
+.produtos-item .produtos-img p {
+  width: 100%;
+  position: absolute;
+  background: rgba(51, 51, 51, 0.632);
+  padding: 7px 0px 7px 10px;
+  bottom: 0px;
+  color: white;
+  font-weight: 600;
+}
+.produtos-item .produtos-dados {
+  padding: 3px 7px 5px 10px;
+  position: relative;
+}
+.produtos-item .produtos-dados .valor-atual {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-right: 8px;
+}
+.produtos-item .produtos-dados .valor-anterior {
+  position: relative;
+  right: -20px;
+  top: -5px;
+}
+.produtos-item .produtos-dados .desc {
+  color: green;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-transform: uppercase;
+  position: relative;
+  top: -5px;
+}
+.produtos-item .produtos-dados .parcelas {
+  margin-top: 8px;
+  color: rgba(255, 0, 0, 0.658);
+  font-weight: 500;
+}
+.produtos-item .produtos-dados .tamanhos {
+  margin-top: 10px;
+  display: inline-flex;
+}
+.produtos-item .produtos-dados .tamanhos h3 {
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 500;
+  margin-right: 8px;
+  padding-top: 4px;
+}
+.produtos-item .produtos-dados .tamanhos li {
+  display: inline-block;
+}
+.produtos-item .produtos-dados .tamanhos li a {
+  color: black;
+  display: block;
+  border: 2px solid #333;
+  width: 28px;
+  height: 24px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding-top: 2px;
+  text-align: center;
+}
+.produtos-item .produtos-dados .cor {
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: 500;
+  margin-right: 8px;
+  margin-top: 5px;
+}
+.produtos-item .produtos-dados .cor span {
+  font-weight: normal;
+}
+.produtos-item .produtos-dados .status {
+  text-transform: uppercase;
+  margin: 10px 0 15px 0px;
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+.produtos-item .produtos-dados .status h2 {
+  flex: 1;
+  color: rgba(255, 0, 0, 0.877);
+  align-self: center;
+}
+.produtos-item .produtos-dados .status a {
+  flex: 1;
+  display: block;
+  background: #47ca83;
+  color: white;
+  max-width: 150px;
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+.fecha {
+  position: absolute;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  top: 10px;
+  left: 15px;
+}
+.fecha span:after,
+.fecha span:before {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: white;
+  position: absolute;
+}
+.fecha span:after {
+  top: 20px;
+  transform: rotate(45deg);
+}
+.fecha span:before {
+  top: 20px;
+  transform: rotate(-45deg);
+}
+
+/*# sourceMappingURL=style.css.map */
