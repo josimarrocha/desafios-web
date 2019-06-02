@@ -1,14 +1,26 @@
 'use strict'
 
 import React from 'react'
+import { connect } from 'react-redux'
 import ProdutoItem from 'components/produto-item'
 
-const ProdutoList = () => (
+const ProdutoList = ({ produtos }) => (
   <section className='container'>
     <div className="produtos ">
-      {Array.from({ length: 10 }).map((item, index) => (
+
+      {Object.keys(produtos).map((item, index) => (
         <div key={index}>
-          <ProdutoItem />
+          <ProdutoItem
+            cor={produtos[item].color}
+            status={produtos[item].disponivel}
+            image={produtos[item].imagem}
+            name={produtos[item].nome}
+            desconto={produtos[item].promocao}
+            parcelas={produtos[item].parcelas}
+            atual={produtos[item].preco_atual}
+            anterior={produtos[item].preco_regular}
+            tamanhos={produtos[item].sizes}
+          />
         </div>
       ))}
     </div>
@@ -16,4 +28,8 @@ const ProdutoList = () => (
   </section>
 )
 
-export default ProdutoList
+const mapStateToProps = (state) => ({
+  produtos: state.produtos
+})
+
+export default connect(mapStateToProps)(ProdutoList)

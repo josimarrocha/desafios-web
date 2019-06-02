@@ -1,31 +1,40 @@
 'use strict'
 
-import React from 'react'
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
 import ProdutosList from 'components/produto-list'
 import Carrinho from 'components/carrinho'
+import { fetchProdutos } from 'reducers/produtos/action-creators'
 
 import './css/style.css'
 
-const App = () => (
-  <div>
-    <Header>
-      <div className='container'>
-        <Titulo className=''>Amaro</Titulo>
-        <CarrinhoBtn />
-      </div>
-    </Header>
-    <Carrinho />
-    <Filter>
-      <div className="container">
-        <h2 className='title-filter'>Filtro</h2>
-        <input type="checkbox" name="" id="" /><span>Em estoque</span>
-      </div>
-    </Filter>
-    <ProdutosList />
+class App extends PureComponent {
+  componentDidMount() {
+    this.props.fetchProdutos()
+  }
+  render() {
+    return (
+      <div>
+        <Header>
+          <div className='container'>
+            <Titulo className=''>Amaro</Titulo>
+            <CarrinhoBtn />
+          </div>
+        </Header>
+        <Carrinho />
+        <Filter>
+          <div className="container">
+            <h2 className='title-filter'>Filtro</h2>
+            <input type="checkbox" name="" id="" /><span>Em estoque</span>
+          </div>
+        </Filter>
+        <ProdutosList />
 
-  </div>
-)
+      </div>
+    )
+  }
+}
 
 const Header = styled.header`
   background: green;
@@ -63,5 +72,6 @@ const CarrinhoBtn = styled.div`
   margin-top:15px;
   margin-right:10px;
 `
+const mapDispatchToProps = { fetchProdutos }
 
-export default App
+export default connect(null, mapDispatchToProps)(App)

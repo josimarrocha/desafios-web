@@ -39,6 +39,7 @@ const Carrinho = () => (
   </CarrinhoContainer>
 )
 
+
 const Header = styled.div`
   height: 60px;
   background: green;
