@@ -26,13 +26,15 @@ const Produto = ({
           <h3>Tamanhos:</h3>
           <ul>
             {tamanhos.map((item, index) => (
-              <li><a href="">{item.size}</a></li>
+              <li key={index}>
+                <a href="">{item.size}</a>
+              </li>
             ))}
           </ul>
         </div>
         <h3 className='cor'>Cor: <span>{cor}</span></h3>
         <div className="status">
-          {status && <h2>Indisponivel</h2>}
+          {status && <h2>PROMOÇÃO</h2>}
           <a href="">Adicionar</a>
         </div>
       </div>

@@ -43,8 +43,9 @@ it('reducer should return initialState when state before is undefined', () => {
 })
 
 it('initialState should not be undefined', () => {
+  const before = undefined
   try {
-    createReducer()
+    createReducer(before)
   } catch (e) {
     expect(e.message).to.be.equal('initialState should not be undefined')
   }

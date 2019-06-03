@@ -9,6 +9,7 @@ const Produto = createReducer(initialState, {
   [ADD_PRODUTO]: (state, action) => ({
     ...state,
     [action.payload.code_color]: {
+      code: action.payload.code_color,
       imagem: action.payload.image,
       nome: action.payload.name,
       preco_regular: action.payload.regular_price,

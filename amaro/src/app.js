@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import ProdutosList from 'components/produto-list'
 import Carrinho from 'components/carrinho'
 import { fetchProdutos } from 'reducers/produtos/action-creators'
+import { filterOnSale } from 'reducers/filter-produtos/action-creators'
+import { SHOW_ON_SALE, SHOW_ALL } from 'reducers/filter-produtos/actions'
 
 import './css/style.css'
 
@@ -14,6 +16,7 @@ class App extends PureComponent {
     this.props.fetchProdutos()
   }
   render() {
+    const { setFilter } = this.props
     return (
       <div>
         <Header>
@@ -26,7 +29,7 @@ class App extends PureComponent {
         <Filter>
           <div className="container">
             <h2 className='title-filter'>Filtro</h2>
-            <input type="checkbox" name="" id="" /><span>Em estoque</span>
+            <input type="checkbox" name="filtro" onChange={setFilter} /><span>Em promoção</span>
           </div>
         </Filter>
         <ProdutosList />
@@ -72,6 +75,11 @@ const CarrinhoBtn = styled.div`
   margin-top:15px;
   margin-right:10px;
 `
-const mapDispatchToProps = { fetchProdutos }
+const mapDispatchToProps = (dispatch) => ({
+  fetchProdutos: () => dispatch(fetchProdutos()),
+  setFilter: (e) => {
+    e.target.checked ? dispatch(filterOnSale(SHOW_ON_SALE)) : dispatch(filterOnSale(SHOW_ALL))
+  }
+})
 
 export default connect(null, mapDispatchToProps)(App)
