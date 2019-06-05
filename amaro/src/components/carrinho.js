@@ -1,35 +1,41 @@
 'use strict'
 
 import React from 'react'
+import { connect } from 'react-redux'
 import styled from 'styled-components'
+import { closeCarrinho } from 'reducers/ui/action-creators'
 
-const Carrinho = () => (
-  <CarrinhoContainer>
+const Carrinho = ({ produtosCarrinho, toggleCarrinho, closeCarrinho }) => (
+  <CarrinhoContainer style={{ transform: `translateX( ${toggleCarrinho.openCarrinho ? '0%' : '101%'})` }}>
     <Header>
-      <div className='fecha' onClick={() => alert('jo')}>
+      <div className='fecha' onClick={closeCarrinho}>
         <span />
       </div>
     </Header>
     <ProdutosCarrinho>
       <Title>Produtos adicionados ao carrinho</Title>
       <ProdutoList className='produtos-carrinho-list'>
-        {Array.from({ length: 5 }).map((item, index) => (
+        {Object.keys(produtosCarrinho).map((item, index) => (
           <Produto key={index}>
             <ProdutoDados>
-              <img src="./img-produto-car1.png" alt="" />
+              <img src={produtosCarrinho[item].imagem} alt="" />
               <div>
-                <h2>Vestido transpasse bow</h2>
-                <Label>R$ 19,90</Label><br />
+                <h2>{produtosCarrinho[item].nome}</h2>
+                <Label>{produtosCarrinho[item].preco_atual}</Label><br />
                 <Label>QNTD:</Label>
-                <InputQuantidade type="text" />
+                <InputQuantidade type="text" value={produtosCarrinho[item].qntd} />
                 <span>-</span>
                 <span>+</span><br />
                 <ul>
                   <Label>Tamanhos:</Label>
-                  <li><a href="">P</a></li>
-                  <li><a href="">M</a></li>
+                  {produtosCarrinho[item].sizes.map(item => (
+                    <li key={item.code}><a href="">{item.tamanho}</a></li>
+                  ))}
+                  {/* <li><a href="">M</a></li> */}
                 </ul>
-                <h2 style={{ float: 'right' }}>Total: R$19,90</h2>
+                <h2 style={{ float: 'right' }}>Total:
+                 {(produtosCarrinho[item].preco_atual.replace('R$', '').replace(',', '.') * produtosCarrinho[item].qntd)}
+                </h2>
               </div>
             </ProdutoDados>
           </Produto>
@@ -62,6 +68,8 @@ const ProdutoDados = styled.div`
   display:flex;
   img{
     align-self: flex-start;
+    max-width: 76px;
+    max-height:90px
   }
 
   div{
@@ -129,11 +137,18 @@ const CarrinhoContainer = styled.div`
   position: fixed;
   width: 360px;
   height: 100vh;
-  transform: translateX(101%);
   right:0;
   box-shadow: -1px 0 5px #333;
   background: rgb(221, 221, 221);
+  transition: transform .3s ease-in;
   z-index:2;
 `
 
-export default Carrinho
+const mapStateToProps = (state) => ({
+  produtosCarrinho: state.carrinho,
+  toggleCarrinho: state.ui
+})
+
+const mapDispatchToProps = { closeCarrinho }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carrinho)

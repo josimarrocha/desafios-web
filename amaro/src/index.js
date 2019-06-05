@@ -8,7 +8,7 @@ import App from './app'
 import configureStore from './redux-flow/configure-store'
 
 const store = configureStore()
-console.log(store)
+console.log(store.getState())
 
 const renderApp = (NextApp) => {
   render(

@@ -336,18 +336,22 @@ h1 {
 .produtos-item .produtos-dados .tamanhos li {
   display: inline-block;
 }
-.produtos-item .produtos-dados .tamanhos li a {
+.produtos-item .produtos-dados .tamanhos li label {
   font-size: 0.8em;
   color: black;
   display: block;
-  border: 2px solid #333;
+  border: 2px solid #bbb;
   width: 26px;
   height: 22px;
   margin-right: 6px;
   margin-bottom: 5px;
   padding-top: 3px;
+  cursor: pointer;
   padding-right: 1px;
   text-align: center;
+}
+.produtos-item .produtos-dados .tamanhos li label.action {
+  border-color: #47ca83;
 }
 .produtos-item .produtos-dados .cor {
   text-transform: uppercase;
@@ -372,7 +376,7 @@ h1 {
   color: rgba(255, 0, 0, 0.877);
   align-self: center;
 }
-.produtos-item .produtos-dados .status a {
+.produtos-item .produtos-dados .status button {
   flex: 1;
   display: block;
   background: #47ca83;
@@ -380,6 +384,13 @@ h1 {
   max-width: 150px;
   padding: 10px 0;
   border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 5px #666;
+  outline: none;
+  border: none;
+}
+.produtos-item .produtos-dados .status button:active {
+  transform: translate(1%, 2%);
 }
 
 .fecha {

@@ -72,18 +72,22 @@
       }
       li {
         display: inline-block;
-        a {
+        label {
           font-size: 0.8em;
           color: black;
           display: block;
-          border: 2px solid #333;
+          border: 2px solid #bbb;
           width: 26px;
           height: 22px;
           margin-right: 6px;
           margin-bottom: 5px;
           padding-top: 3px;
+          cursor: pointer;
           padding-right: 1px;
           text-align: center;
+          &.action {
+            border-color: #47ca83;
+          }
         }
       }
     }
@@ -111,7 +115,7 @@
         color: rgba(255, 0, 0, 0.877);
         align-self: center;
       }
-      a {
+      button {
         flex: 1;
         display: block;
         background: #47ca83;
@@ -119,6 +123,13 @@
         max-width: 150px;
         padding: 10px 0;
         border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 0 0 5px #666;
+        outline: none;
+        border: none;
+        &:active {
+          transform: translate(1%, 2%);
+        }
       }
     }
   }

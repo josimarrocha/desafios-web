@@ -8,6 +8,7 @@ import Carrinho from 'components/carrinho'
 import { fetchProdutos } from 'reducers/produtos/action-creators'
 import { filterOnSale } from 'reducers/filter-produtos/action-creators'
 import { SHOW_ON_SALE, SHOW_ALL } from 'reducers/filter-produtos/actions'
+import { openCarrinho } from 'reducers/ui/action-creators'
 
 import './css/style.css'
 
@@ -16,13 +17,15 @@ class App extends PureComponent {
     this.props.fetchProdutos()
   }
   render() {
-    const { setFilter } = this.props
+    const { setFilter, produtos, open } = this.props
     return (
       <div>
         <Header>
           <div className='container'>
             <Titulo className=''>Amaro</Titulo>
-            <CarrinhoBtn />
+            <CarrinhoBtn onClick={open}>
+              {produtos.length > 0 && <div>{produtos.length}</div>}
+            </CarrinhoBtn>
           </div>
         </Header>
         <Carrinho />
@@ -68,18 +71,38 @@ const Filter = styled.section`
   padding-left:10px;
 `
 const CarrinhoBtn = styled.div`
-  width:24px;
-  height:24px;
+  width:28px;
+  height:28px;
   float:right;
-  background: red;
+  background: black;
   margin-top:15px;
   margin-right:10px;
+  position: relative;
+  cursor: pointer;
+  div{
+    width:20px;
+    height:20px;
+    background: red;
+    border-radius:50%;
+    color: white;
+    position: absolute;
+    right: 0;
+    top:-5px;
+    text-align:center;
+    font-weight: 500;
+
+  }
 `
+const mapStateToProps = (state) => ({
+  produtos: Object.keys(state.carrinho)
+})
+
 const mapDispatchToProps = (dispatch) => ({
   fetchProdutos: () => dispatch(fetchProdutos()),
   setFilter: (e) => {
     e.target.checked ? dispatch(filterOnSale(SHOW_ON_SALE)) : dispatch(filterOnSale(SHOW_ALL))
-  }
+  },
+  open: () => dispatch(openCarrinho())
 })
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)

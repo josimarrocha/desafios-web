@@ -8,10 +8,10 @@ import { SHOW_ALL, SHOW_ON_SALE } from 'reducers/filter-produtos/actions'
 const ProdutoList = ({ produtos, filter }) => (
   <section className='container'>
     <div className="produtos ">
-      {console.log(getOnSale(produtos, filter))}
       {getOnSale(produtos, filter).map((item, index) => (
         <ProdutoItem
           key={index}
+          id={item}
           cor={produtos[item].color}
           status={produtos[item].disponivel}
           image={produtos[item].imagem}
