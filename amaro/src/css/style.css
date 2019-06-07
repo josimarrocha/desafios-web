@@ -352,6 +352,7 @@ h1 {
 }
 .produtos-item .produtos-dados .tamanhos li label.action {
   border-color: #47ca83;
+  color: #47ca83;
 }
 .produtos-item .produtos-dados .cor {
   text-transform: uppercase;
@@ -362,6 +363,32 @@ h1 {
 }
 .produtos-item .produtos-dados .cor span {
   font-weight: normal;
+}
+.produtos-item .produtos-dados .error {
+  background: #e2e2e2;
+  color: rgba(56, 56, 56, 0.767);
+  text-align: center;
+  display: block;
+  width: 140px;
+  font-size: 12px;
+  padding: 6px;
+  right: 10px;
+  top: 20px;
+  border-radius: 10px;
+  position: absolute;
+  font-weight: 500;
+}
+.produtos-item .produtos-dados .error::after {
+  z-index: -1;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 20px;
+  left: 10px;
+  top: 10px;
+  height: 20px;
+  background: #e2e2e2;
+  transform: rotate(45deg);
 }
 .produtos-item .produtos-dados .status {
   text-transform: uppercase;
