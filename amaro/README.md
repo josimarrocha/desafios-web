@@ -1,4 +1,13 @@
-# Workflow ReactJS
+# ReactJS
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `yarn dev`
+
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## What's inside it?
 
@@ -7,8 +16,6 @@
 * React hot loader
 * HTML and CSS generated automatically by webpack
 * Jest for tests and Chai for assertions
-* Storybook to create isolatelly components' stories
-* Async/await
 * Dynamic `import()` function
 * Webpack tree shaking!
 * [Preact](https://preactjs.com/) for production build (optional)
@@ -49,4 +56,4 @@ A big thanks to [@hgtpcastro](https://github.com/hgtpcastro) for this tip.
 
 ## License
 
-[MIT](https://github.com/fdaciuk/licenses/blob/master/MIT-LICENSE.md) &copy; Fernando Daciuk
+[MIT](https://github.com/fdaciuk/licenses/blob/master/MIT-LICENSE.md) &copy; Josimar Santos
