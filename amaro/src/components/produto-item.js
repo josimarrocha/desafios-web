@@ -3,8 +3,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addCarrinho } from 'reducers/carrinho/action-creators'
+import { addTamanhos, removeTamanhos } from 'reducers/tamanhos/action-creators'
 
-let tamanhos = []
 const Produto = ({
   id,
   name,
@@ -17,9 +17,12 @@ const Produto = ({
   cor,
   status,
   produtos,
-  handleClick }) => (
+  handleClick,
+  addTamnho,
+  removeTamanho,
+  addTamanhoProdutos }) => (
     <div className="grid-3 produtos-item">
-      <form action="" onSubmit={handleClick(id, produtos)}>
+      <form action="" onSubmit={handleClick(id, produtos, addTamanhoProdutos)}>
         <div className='produtos-img'>
           <img src={image} alt="" />
           <p>{name}</p>
@@ -36,22 +39,27 @@ const Produto = ({
                 <li key={index}>
                   {item.available &&
                     <div>
-                      <label htmlFor={item.sku}
-                        onClick={(e) => { e.target.classList.toggle('action') }}>
+                      <label htmlFor={item.sku} onClick={(e) => {
+                        e.target.classList.toggle('action')
+                        e.target.classList.contains('action') ? addTamnho(id, item) : removeTamanho(id, item.sku)
+                      }}>
                         {item.size}
                       </label>
-                      <input type="checkbox" style={{ display: 'none' }} name="check" value={item.size} id={item.sku} />
                     </div>
-
                   }
                 </li>
               ))}
             </ul>
           </div>
           <h3 className='cor'>Cor: <span>{cor}</span></h3>
+          <span className='error'>Adicione um tamanho!</span>
           <div className="status">
             {status && <h2>PROMOÇÃO</h2>}
-            <button type='submit'>Adicionar</button>
+            <button type='submit'
+            // disabled={addTamanhoProdutos.length ? false : true}
+            >
+              Adicionar
+            </button>
           </div>
         </div>
       </form>
@@ -59,21 +67,16 @@ const Produto = ({
   )
 
 const mapStateToProps = (state) => ({
-  produtos: state.produtos
+  produtos: state.produtos,
+  addTamanhoProdutos: state.tamanhos
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  handleClick: (id, produtos) => (e) => {
+  addTamnho: (id, item) => dispatch(addTamanhos(id, item)),
+  removeTamanho: (id, sku) => dispatch(removeTamanhos(id, sku)),
+  handleClick: (id, produtos, addTamanhoProdutos) => (e) => {
     e.preventDefault()
-    const teste = Array.prototype.filter.call(e.target.check, function (item) {
-      return item.checked === true
-    })
-    const tamanhos = teste.map(item => ({
-      code: item.id,
-      tamanho: item.value
-    }))
-    dispatch(addCarrinho(produtos[id], tamanhos))
-    console.log(produtos[id])
+    dispatch(addCarrinho(produtos[id], addTamanhoProdutos))
   }
 })
 
