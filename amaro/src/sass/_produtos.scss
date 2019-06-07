@@ -87,6 +87,7 @@
           text-align: center;
           &.action {
             border-color: #47ca83;
+            color: #47ca83;
           }
         }
       }
@@ -100,6 +101,32 @@
 
       span {
         font-weight: normal;
+      }
+    }
+    .error {
+      background: rgb(226, 226, 226);
+      color: rgba(56, 56, 56, 0.767);
+      text-align: center;
+      display: block;
+      width: 140px;
+      font-size: 12px;
+      padding: 6px;
+      right: 10px;
+      top: 20px;
+      border-radius: 10px;
+      position: absolute;
+      font-weight: 500;
+      &::after {
+        z-index: -1;
+        content: "";
+        display: block;
+        position: absolute;
+        width: 20px;
+        left: 10px;
+        top: 10px;
+        height: 20px;
+        background: rgb(226, 226, 226);
+        transform: rotate(45deg);
       }
     }
 
