@@ -55,11 +55,9 @@ const Produto = ({
           <span className='error'>Adicione um tamanho!</span>
           <div className="status">
             {status && <h2>PROMOÇÃO</h2>}
-            <button type='submit'
-            // disabled={addTamanhoProdutos.length ? false : true}
-            >
+            <button type='submit'>
               Adicionar
-            </button>
+          </button>
           </div>
         </div>
       </form>

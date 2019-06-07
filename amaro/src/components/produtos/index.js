@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { connect } from 'react-redux'
-import ProdutoItem from 'components/produto-item'
+import ProdutoItem from 'components/produtos/produto-item'
 import { SHOW_ALL, SHOW_ON_SALE } from 'reducers/filter-produtos/actions'
 
 const ProdutoList = ({ produtos, filter }) => (

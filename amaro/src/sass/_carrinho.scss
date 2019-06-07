@@ -1,3 +1,131 @@
+.carrinhoContainer {
+  position: fixed;
+  width: 360px;
+  height: 100vh;
+  right: 0;
+  box-shadow: -1px 0 5px #333;
+  background: rgb(221, 221, 221);
+  transition: transform 0.3s ease-in;
+  z-index: 2;
+
+  header {
+    height: 60px;
+    background: green;
+    box-shadow: -3px 1px 5px #333;
+  }
+}
+
+.produtosCarrinho {
+  margin: 10px 5px;
+  height: 85vh;
+  overflow-x: auto;
+
+  .title {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+}
+
+.produtoList {
+  display: flex;
+  flex-direction: column;
+}
+
+.produto {
+  margin-bottom: 10px;
+  padding: 5px;
+  background: white;
+  border: 1px solid #333;
+  width: 100%;
+  position: relative;
+  display: flex;
+
+  .deleteProduto {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    box-shadow: none;
+    padding: 10px;
+    cursor: pointer;
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      background: red;
+      width: 24px;
+      height: 3px;
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
+    &::before {
+      transform: rotate(-45deg);
+    }
+  }
+
+  img {
+    align-self: flex-start;
+    max-width: 76px;
+    max-height: 90px;
+  }
+
+  div {
+    padding-left: 10px;
+    box-shadow: -1px 0 2px #999;
+    flex: 1;
+
+    .label {
+      font-weight: 500;
+      display: inline-block;
+      margin: 5px 0;
+    }
+
+    span {
+      display: inline-block;
+      background: green;
+      width: 24px;
+      height: 22px;
+      vertical-align: middle;
+      margin: 0 5px;
+      font-size: 1.3em;
+      font-weight: 600;
+      color: white;
+      text-align: center;
+    }
+
+    .inputQuantidade {
+      width: 30px;
+      margin-left: 5px;
+      margin-bottom: 5px;
+    }
+
+    .incrementDecrement {
+      cursor: pointer;
+      &:active {
+        transform: translate(3%, 3%);
+      }
+    }
+
+    li {
+      display: inline-block;
+      margin-left: 5px;
+      a {
+        color: black;
+        display: block;
+        border: 1px solid #333;
+        width: 24px;
+        height: 20px;
+        margin-right: 6px;
+        margin-bottom: 5px;
+        padding-top: 1px;
+        text-align: center;
+      }
+    }
+  }
+}
+
 .fecha {
   position: absolute;
   cursor: pointer;

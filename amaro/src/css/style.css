@@ -420,6 +420,123 @@ h1 {
   transform: translate(1%, 2%);
 }
 
+.carrinhoContainer {
+  position: fixed;
+  width: 360px;
+  height: 100vh;
+  right: 0;
+  box-shadow: -1px 0 5px #333;
+  background: #dddddd;
+  transition: transform 0.3s ease-in;
+  z-index: 2;
+}
+.carrinhoContainer header {
+  height: 60px;
+  background: green;
+  box-shadow: -3px 1px 5px #333;
+}
+
+.produtosCarrinho {
+  margin: 10px 5px;
+  height: 85vh;
+  overflow-x: auto;
+}
+.produtosCarrinho .title {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.produtoList {
+  display: flex;
+  flex-direction: column;
+}
+
+.produto {
+  margin-bottom: 10px;
+  padding: 5px;
+  background: white;
+  border: 1px solid #333;
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.produto .deleteProduto {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  box-shadow: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.produto .deleteProduto::after, .produto .deleteProduto::before {
+  content: "";
+  position: absolute;
+  background: red;
+  width: 24px;
+  height: 3px;
+}
+.produto .deleteProduto::after {
+  transform: rotate(45deg);
+}
+.produto .deleteProduto::before {
+  transform: rotate(-45deg);
+}
+.produto img {
+  align-self: flex-start;
+  max-width: 76px;
+  max-height: 90px;
+}
+.produto div {
+  padding-left: 10px;
+  box-shadow: -1px 0 2px #999;
+  flex: 1;
+}
+.produto div .label {
+  font-weight: 500;
+  display: inline-block;
+  margin: 5px 0;
+}
+.produto div span {
+  display: inline-block;
+  background: green;
+  width: 24px;
+  height: 22px;
+  vertical-align: middle;
+  margin: 0 5px;
+  font-size: 1.3em;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+}
+.produto div .inputQuantidade {
+  width: 30px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.produto div .incrementDecrement {
+  cursor: pointer;
+}
+.produto div .incrementDecrement:active {
+  transform: translate(3%, 3%);
+}
+.produto div li {
+  display: inline-block;
+  margin-left: 5px;
+}
+.produto div li a {
+  color: black;
+  display: block;
+  border: 1px solid #333;
+  width: 24px;
+  height: 20px;
+  margin-right: 6px;
+  margin-bottom: 5px;
+  padding-top: 1px;
+  text-align: center;
+}
+
 .fecha {
   position: absolute;
   cursor: pointer;
